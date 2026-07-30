@@ -1,0 +1,5 @@
+Initial commit of pub.tech marketing site
+
+React/Vite site with kinetic hero headline, sticky scroll feature
+section, and scroll-reactive motion (parallax, velocity skew/blur,
+color-bleed transitions).
