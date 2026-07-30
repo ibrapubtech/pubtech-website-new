@@ -1,0 +1,338 @@
+/* ============================================================
+   pub.tech — Pattern library (v3 layout primitives)
+   ============================================================
+
+   Builds on tokens from `colors_and_type.css`. Adds:
+
+   - `.pub-stage`             full-bleed colored band
+   - `.pub-stage--{tint}`     band color variants (lime / aqua / purple / coal tints)
+   - `.pub-rail-dots`         vertical dot indicator pinned to band's right edge
+   - `.pub-bento`             3-column bento grid (left / center-spanning / right)
+   - `.pub-bento-card`        card cell inside a bento
+   - `.pub-bento-card--*`     card color variants
+   - `.pub-bento-center`      tall central cell that holds the stencil + device
+   - `.pub-stencil`           huge all-caps display headline used inside cards
+   - `.pub-device`            tall rounded card that mocks a product device
+   - `.pub-ui-chip`           floating UI-mockup pill used inside cards
+   - `.pub-ui-card`           small floating UI mock card
+
+   These are intentionally chunky, magazine-y components inspired by the
+   MetaMask homepage. Use them on top of the existing token system.
+   ============================================================ */
+
+@import url("colors_and_type.css");
+
+/* ---------- Full-bleed colored stage ---------- */
+
+.pub-stage {
+  position: relative;
+  padding: 80px clamp(24px, 5vw, 80px);
+  border-radius: 0;
+  overflow: hidden;
+}
+.pub-stage + .pub-stage { margin-top: 0; }
+
+.pub-stage--lime         { background: var(--pub-lime-100);   color: var(--pub-coal-900); }
+.pub-stage--lime-strong  { background: var(--pub-lime-200);   color: var(--pub-coal-900); }
+.pub-stage--aqua         { background: var(--pub-aqua-100);   color: var(--pub-coal-900); }
+.pub-stage--aqua-strong  { background: var(--pub-aqua-200);   color: var(--pub-coal-900); }
+.pub-stage--purple-soft  { background: var(--pub-purple-100); color: var(--pub-coal-900); }
+.pub-stage--purple-200   { background: var(--pub-purple-200); color: var(--pub-coal-900); }
+.pub-stage--coal-dark    { background: var(--pub-coal-900);   color: #fff; }
+.pub-stage--purple-deep  { background: var(--pub-purple-900); color: #fff; }
+.pub-stage--paper        { background: var(--pub-paper);      color: var(--pub-coal-900); }
+
+.pub-stage-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---------- Vertical rail-dots indicator (the right-edge pip) ---------- */
+
+.pub-rail-dots {
+  position: absolute;
+  right: clamp(8px, 1.5vw, 24px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--pub-coal-900);
+  border-radius: 999px;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  z-index: 2;
+}
+.pub-rail-dots i {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  display: block;
+}
+.pub-rail-dots i.is-active { background: #fff; }
+
+/* On purple-deep / coal-dark stages, invert the rail */
+.pub-stage--coal-dark .pub-rail-dots,
+.pub-stage--purple-deep .pub-rail-dots {
+  background: #fff;
+}
+.pub-stage--coal-dark .pub-rail-dots i,
+.pub-stage--purple-deep .pub-rail-dots i {
+  background: rgba(0, 0, 0, 0.3);
+}
+.pub-stage--coal-dark .pub-rail-dots i.is-active,
+.pub-stage--purple-deep .pub-rail-dots i.is-active { background: var(--pub-coal-900); }
+
+/* ---------- Bento grid ---------- */
+
+.pub-bento {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  grid-template-rows: minmax(260px, auto) minmax(260px, auto);
+  gap: 14px;
+  position: relative;
+}
+
+.pub-bento-card {
+  border-radius: 22px;
+  padding: 28px 26px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 260px;
+}
+
+.pub-bento-card h3 {
+  font-family: var(--pub-font-display);
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.pub-bento-card p {
+  font-family: var(--pub-font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 8px 0 0;
+  opacity: 0.78;
+}
+
+.pub-bento-card-art {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 80px;
+}
+.pub-bento-card-art img {
+  max-height: 140px;
+  width: auto;
+  filter: drop-shadow(0 14px 24px rgba(36, 5, 58, 0.18));
+}
+
+/* Color variants for bento cards */
+.pub-bento-card--purple-deep { background: var(--pub-purple-700); color: #fff; }
+.pub-bento-card--purple-900  { background: var(--pub-purple-900); color: #fff; }
+.pub-bento-card--coal        { background: var(--pub-coal-900);   color: #fff; }
+.pub-bento-card--aqua        { background: var(--pub-aqua-500);   color: var(--pub-purple-900); }
+.pub-bento-card--aqua-200    { background: var(--pub-aqua-200);   color: var(--pub-coal-900); }
+.pub-bento-card--lime        { background: var(--pub-lime-500);   color: var(--pub-purple-900); }
+.pub-bento-card--lime-200    { background: var(--pub-lime-200);   color: var(--pub-coal-900); }
+.pub-bento-card--lavender    { background: var(--pub-purple-200); color: var(--pub-coal-900); }
+.pub-bento-card--paper       { background: var(--pub-paper);      color: var(--pub-coal-900); }
+.pub-bento-card--white       { background: #fff;                  color: var(--pub-coal-900); }
+
+/* The central spanning cell that holds the stencil + device */
+.pub-bento-center {
+  grid-row: span 2;
+  background: var(--pub-paper);
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 64px 24px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- The Stencil headline ---------- */
+
+.pub-stencil {
+  font-family: var(--pub-font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 5.5vw, 88px);
+  line-height: 0.9;
+  letter-spacing: -2.5px;
+  text-transform: uppercase;
+  color: var(--pub-purple-900);
+  text-wrap: balance;
+  margin: 0;
+}
+.pub-stencil--lime   { color: var(--pub-lime-500); }
+.pub-stencil--aqua   { color: var(--pub-aqua-500); }
+.pub-stencil--purple { color: var(--pub-purple-900); }
+.pub-stencil--coal   { color: var(--pub-coal-900); }
+.pub-stencil--white  { color: #fff; }
+
+/* ---------- Device mockup ---------- */
+
+.pub-device {
+  width: min(280px, 90%);
+  aspect-ratio: 280 / 360;
+  background: var(--pub-paper);
+  border-radius: 36px 36px 0 0;
+  margin-top: auto;
+  padding: 36px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--pub-coal-100);
+  border-bottom: 0;
+  position: relative;
+}
+.pub-device::before {
+  content: "";
+  position: absolute;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  width: 56px; height: 5px;
+  background: var(--pub-coal-200);
+  border-radius: 999px;
+}
+.pub-device-art {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.pub-device-art img {
+  max-width: 100%;
+  max-height: 220px;
+  filter: drop-shadow(0 24px 40px rgba(255, 60, 180, 0.3));
+}
+
+/* ---------- Floating UI-mockup chips & cards ---------- */
+
+.pub-ui-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-family: var(--pub-font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--pub-coal-900);
+  box-shadow: 0 12px 24px rgba(36, 5, 58, 0.18);
+}
+.pub-ui-chip .dot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--pub-lime-500);
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-size: 11px;
+  color: var(--pub-purple-900);
+  font-weight: 900;
+}
+
+.pub-ui-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-family: var(--pub-font-body);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--pub-coal-900);
+  box-shadow: 0 16px 30px rgba(36, 5, 58, 0.18);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 200px;
+}
+.pub-ui-card .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pub-ui-card .lbl { color: var(--pub-coal-400); font-size: 11px; }
+.pub-ui-card strong { font-family: var(--pub-font-display); font-weight: 900; }
+
+/* ---------- Use-cases card grid ---------- */
+
+.pub-cases {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.pub-case {
+  background: var(--pub-coal-900);
+  color: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+}
+.pub-case--white { background: #fff; color: var(--pub-coal-900); border: 1px solid var(--pub-coal-100); }
+.pub-case--aqua  { background: var(--pub-aqua-100); color: var(--pub-coal-900); }
+.pub-case--lime  { background: var(--pub-lime-200); color: var(--pub-coal-900); }
+.pub-case--purple{ background: var(--pub-purple-100); color: var(--pub-coal-900); }
+.pub-case-mock {
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 12px;
+  flex: 1;
+  font-family: var(--pub-font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.85);
+}
+.pub-case--white .pub-case-mock,
+.pub-case--aqua  .pub-case-mock,
+.pub-case--lime  .pub-case-mock,
+.pub-case--purple .pub-case-mock {
+  background: rgba(36, 5, 58, 0.06);
+  color: var(--pub-coal-700);
+}
+.pub-case h4 {
+  font-family: var(--pub-font-display);
+  font-weight: 900;
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+.pub-case p {
+  font-family: var(--pub-font-body);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
+  .pub-bento { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; }
+  .pub-bento-center { grid-column: span 2; grid-row: auto; padding-top: 32px; }
+  .pub-cases { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .pub-bento { grid-template-columns: 1fr; }
+  .pub-bento-center { grid-column: auto; }
+  .pub-cases { grid-template-columns: 1fr; }
+  .pub-rail-dots { display: none; }
+}

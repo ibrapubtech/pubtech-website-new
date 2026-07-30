@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Logo mark" subtitle="The abstract 'p' / city silhouette mark" viewport="700x240" -->
+<html lang="de"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 0; }
+  .stage { display:flex; border:1px solid var(--pub-border); border-radius:12px; overflow:hidden; height:200px; }
+  .pane { flex:1; display:flex; align-items:center; justify-content:center; }
+  .pane--light { background:#fff; }
+  .pane--dark  { background:var(--pub-purple-900); }
+  .lm { display: inline-flex; width: 120px; height: 120px; }
+  .lm > svg { width: 100%; height: 100%; fill: currentColor; }
+  .lm--purple { color: var(--pub-purple-900); }
+  .lm--aqua   { color: var(--pub-aqua-500); }
+</style>
+</head><body>
+<script src="../assets/logos/brand-logos.js"></script>
+<div class="stage">
+  <div class="pane pane--light">
+    <span class="lm lm--purple" data-pub-logo="logomark" aria-label="pub.tech logo mark"></span>
+  </div>
+  <div class="pane pane--dark">
+    <span class="lm lm--aqua" data-pub-logo="logomark" aria-label="pub.tech logo mark"></span>
+  </div>
+</div>
+</body></html>

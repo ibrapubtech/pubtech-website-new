@@ -1,0 +1,293 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Website" name="Website — About page" subtitle="Über uns — story, stats, values, Charta der Vielfalt" viewport="1280x1100" -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Über uns — pub.tech</title>
+<link rel="stylesheet" href="styles-v2.css">
+<style>
+  /* Page-specific overrides for /about */
+  .hero--page { padding: 32px 0 72px; }
+  .hero--page .eyebrow-dark { display: inline-block; }
+  .story {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+  }
+  .story h2 {
+    font-family: var(--pub-font-display);
+    font-weight: 900;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.05; letter-spacing: -1px;
+    color: var(--pub-coal-900);
+    margin: 0 0 24px;
+    text-wrap: balance;
+  }
+  .story p {
+    font-family: var(--pub-font-body);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--pub-coal-700);
+    margin: 0 0 18px;
+  }
+  .timeline {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .timeline li {
+    display: grid; grid-template-columns: 100px 1fr;
+    gap: 24px; align-items: baseline;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--pub-coal-100);
+  }
+  .timeline li:last-child { border-bottom: 0; }
+  .timeline .year {
+    font-family: var(--pub-font-display);
+    font-weight: 900; font-size: 36px;
+    color: var(--pub-purple-500);
+    letter-spacing: -1px;
+  }
+  .timeline .what {
+    font-family: var(--pub-font-display);
+    font-weight: 900; font-size: 19px;
+    margin: 0 0 6px;
+    color: var(--pub-coal-900);
+  }
+  .timeline .desc {
+    font-family: var(--pub-font-body);
+    font-weight: 500; font-size: 15px;
+    line-height: 1.55;
+    color: var(--pub-coal-700);
+  }
+  .values {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .value {
+    background: #fff;
+    border: 1px solid var(--pub-coal-100);
+    border-radius: 18px;
+    padding: 28px;
+  }
+  .value-icon { width: 48px; height: 48px; margin-bottom: 18px; }
+  .value-icon img { width: 100%; height: 100%; object-fit: contain; }
+  .value h3 {
+    font-family: var(--pub-font-display);
+    font-weight: 900; font-size: 20px;
+    margin: 0 0 10px; color: var(--pub-coal-900);
+  }
+  .value p {
+    font-family: var(--pub-font-body);
+    font-weight: 500; font-size: 14px;
+    line-height: 1.55;
+    color: var(--pub-coal-700);
+    margin: 0;
+  }
+  .diversity {
+    background: var(--pub-lime-100);
+    border-radius: 24px;
+    padding: 56px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .diversity h2 {
+    font-family: var(--pub-font-display);
+    font-weight: 900; font-size: clamp(24px, 2.6vw, 36px);
+    line-height: 1.1; letter-spacing: -0.7px;
+    color: var(--pub-purple-500); margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .diversity p {
+    font-family: var(--pub-font-body);
+    font-weight: 500; font-size: 15px;
+    line-height: 1.65;
+    color: var(--pub-coal-700);
+    margin: 0;
+  }
+  .diversity-art img { max-width: 220px; width: 100%; }
+  @media (max-width: 1100px) {
+    .story, .values, .diversity { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<script src="../../assets/logos/brand-logos.js"></script>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a href="index-v2.html" class="brand">
+    <span class="brand-mark" data-pub-logo="logomark" aria-hidden="true"></span>
+    <span class="brand-wordmark" data-pub-logo="wordmark" aria-label="pub.tech"></span>
+  </a>
+  <nav class="nav">
+    <a href="index-v2.html#portfolio">Portfolio</a>
+    <a href="about.html" style="color:var(--pub-purple-500)">Über uns</a>
+    <a href="index-v2.html#process">Prozess</a>
+    <a href="index-v2.html#references">Referenzen</a>
+  </nav>
+  <div class="topbar-actions">
+    <a href="jobs.html" class="signin">Jobs</a>
+    <a href="#contact" class="btn btn--primary">Kontakt</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="container hero--page">
+  <div class="hero" style="padding:32px 0 40px">
+    <span class="eyebrow-dark">Über uns</span>
+    <h1 style="font-size:clamp(40px,5vw,76px)">Plattformen für Millionen Menschen — gebaut von rund 100 Expert*innen.</h1>
+    <p class="lede">pub.tech steht für Public Value Technologies GmbH. Wir entwickeln, betreiben und optimieren die digitale Infrastruktur des öffentlich-rechtlichen Rundfunks.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="container section">
+  <div class="story">
+    <div>
+      <span class="eyebrow-dark">Unsere Geschichte</span>
+      <h2>Aus der digitalen Garage zur eigen­ständigen GmbH.</h2>
+      <p>Wir haben als freie „Digitale Garage" in der großen öffentlich-rechtlichen Welt begonnen. Aus dem internen Studio für Software und Plattformen wurde Ende 2022 eine eigenständige GmbH — mit dem Bayerischen Rundfunk (BR), dem Südwestrundfunk (SWR) und dem Hessischen Rundfunk (HR) als Gesellschafter.</p>
+      <p>Seit Anfang 2025 treten wir unter dem Namen <strong>pub.tech</strong> auf — mit noch stärkerem Fokus auf Technologie, Produktentwicklung und gesellschaftlichen Mehrwert.</p>
+    </div>
+    <ul class="timeline">
+      <li>
+        <div class="year">2018</div>
+        <div>
+          <div class="what">Digitale Garage</div>
+          <div class="desc">Start als interne Entwicklungs­einheit innerhalb des Bayerischen Rundfunks.</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2022</div>
+        <div>
+          <div class="what">Eigenständige GmbH</div>
+          <div class="desc">Gründung als Public Value Technologies GmbH mit BR und SWR als Gesellschaftern.</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2024</div>
+        <div>
+          <div class="what">Charta der Vielfalt</div>
+          <div class="desc">Unterzeichnung als sichtbares Bekenntnis zu unseren Werten.</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2025</div>
+        <div>
+          <div class="what">pub.tech</div>
+          <div class="desc">Neuer Auftritt mit dem HR als drittem Gesellschafter — und einem schärferen Fokus auf Technologie und Produkt.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ZAHLEN & FAKTEN -->
+<section class="container section--tight">
+  <div class="stats">
+    <div class="stats-head">
+      <span class="eyebrow-dark">Zahlen &amp; Fakten</span>
+      <h2>Ein Team, das öffentlichen Mehrwert digital übersetzt.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num">~100</div><div class="stat-lbl">Expert*innen</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Gesellschafter</div></div>
+      <div class="stat"><div class="stat-num">11</div><div class="stat-lbl">Data Guys</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">UX-Researcher</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="container section">
+  <div class="section-title" style="margin-bottom:32px">
+    <h2>Was uns wichtig ist.</h2>
+  </div>
+  <div class="values">
+    <div class="value">
+      <div class="value-icon"><img src="../../assets/illustrations/heart.png" alt=""></div>
+      <h3>Public Value zuerst</h3>
+      <p>Zugänglichkeit, Datenschutz und gesellschaftliche Relevanz sind Anforderung — nicht Add-On.</p>
+    </div>
+    <div class="value">
+      <div class="value-icon"><img src="../../assets/illustrations/compass.png" alt=""></div>
+      <h3>Nutzer­zentriert denken</h3>
+      <p>User Research, iterative UX und enge Verzahnung von Strategie, Design und Engineering.</p>
+    </div>
+    <div class="value">
+      <div class="value-icon"><img src="../../assets/illustrations/puzzle.png" alt=""></div>
+      <h3>Im Team gestalten</h3>
+      <p>Gute Technologie entsteht nicht im stillen Kämmerlein. Wir arbeiten Hand in Hand mit unseren Partner*innen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIVERSITY -->
+<section class="container section">
+  <div class="diversity">
+    <div>
+      <span class="eyebrow-dark">Charta der Vielfalt</span>
+      <h2>Vielfalt sichtbar verankert — seit 2024.</h2>
+      <p>Was wir nach außen leben, ist auch für unsere eigene Firmenkultur zentral. 2024 haben wir die Charta der Vielfalt unterzeichnet — als sichtbares Bekenntnis dazu, ein Arbeitsumfeld zu schaffen, das frei von Vorurteilen ist und in dem alle Mitarbeiter*innen Wertschätzung erfahren.</p>
+    </div>
+    <div class="diversity-art"><img src="../../assets/illustrations/heart.png" alt=""></div>
+  </div>
+</section>
+
+<!-- FOOTER (shared) -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-cta">
+      <h2>Lust, gemeinsam Plattformen zu bauen?</h2>
+      <p>Dein Herz schlägt für digitale Produkte mit gesellschaftlicher Relevanz? Schreib uns formlos — wir freuen uns.</p>
+      <a href="mailto:karriere@pub.tech" class="btn btn--lime btn--lg">karriere@pub.tech</a>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="brand-wordmark" data-pub-logo="wordmark"></span>
+        <p>Public Value Technologies GmbH<br>Marsstraße 46<br>80335 München</p>
+        <p style="opacity:.5;font-size:13px">Eine Tochter von BR, SWR und HR.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Was wir tun</h4>
+        <a href="index-v2.html#portfolio">Engineering</a>
+        <a href="index-v2.html#portfolio">Data &amp; AI</a>
+        <a href="index-v2.html#portfolio">Mobile</a>
+        <a href="index-v2.html#portfolio">UX Design</a>
+        <a href="index-v2.html#portfolio">UserLab</a>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <a href="about.html">Über uns</a>
+        <a href="index-v2.html#references">Referenzen</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <a href="mailto:info@pub.tech">info@pub.tech</a>
+        <a href="mailto:anfrage@pub.tech">anfrage@pub.tech</a>
+        <a href="mailto:karriere@pub.tech">karriere@pub.tech</a>
+      </div>
+      <div class="footer-col">
+        <h4>Folgen</h4>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+
+    <div class="footer-tiny">
+      <span>© 2025 Public Value Technologies GmbH</span>
+      <span>Impressum · Datenschutz · Hinweis geben</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

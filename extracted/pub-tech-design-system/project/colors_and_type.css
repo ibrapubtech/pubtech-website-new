@@ -1,0 +1,264 @@
+/* ============================================================
+   pub.tech — Design Tokens
+   Public Value Technologies GmbH
+   ============================================================
+
+   Source: pub. corporate design Figma file (brand-colors page).
+   Brand fonts: Overpass (display/body), Inter (UI/system labels),
+   TheSans C4s (tabular numeric labels in swatches).
+
+   We substitute Overpass and Inter from Google Fonts. TheSans
+   is a licensed type family and is replaced here with Inter as
+   the closest available match — flag this to the user if you
+   need pixel-perfect output.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  /* ----------------------------------------------------------
+     CORE BRAND COLORS
+     Four families × 10 steps (50→900).
+     500 is the brand step. 900 is the darkest, 50 the lightest.
+     ---------------------------------------------------------- */
+
+  /* Aqua — supporting accent, friendly tech */
+  --pub-aqua-50:  #F7FDFD;
+  --pub-aqua-100: #EEFBFC;
+  --pub-aqua-200: #D6F5F6;
+  --pub-aqua-300: #BDEEF1;
+  --pub-aqua-400: #8BE2E7;
+  --pub-aqua-500: #59D5DC;   /* brand */
+  --pub-aqua-600: #50C0C6;
+  --pub-aqua-700: #43A0A5;
+  --pub-aqua-800: #358084;
+  --pub-aqua-900: #2C686C;
+
+  /* Lime — energetic accent, "go" and highlight */
+  --pub-lime-50:  #FBFFF6;
+  --pub-lime-100: #F8FFEC;
+  --pub-lime-200: #EDFFD0;
+  --pub-lime-300: #E1FEB3;
+  --pub-lime-400: #CBFE7B;
+  --pub-lime-500: #B5FD42;   /* brand */
+  --pub-lime-600: #A3E43B;
+  --pub-lime-700: #88BE32;
+  --pub-lime-800: #6D9828;
+  --pub-lime-900: #597C20;
+
+  /* Purple — primary brand background and protection color */
+  --pub-purple-50:  #F6F3F8;
+  --pub-purple-100: #EDE7F1;
+  --pub-purple-200: #D2C2DD;
+  --pub-purple-300: #B79DC9;
+  --pub-purple-400: #8054A0;
+  --pub-purple-500: #4A0A77;   /* brand */
+  --pub-purple-600: #43096B;
+  --pub-purple-700: #380859;
+  --pub-purple-800: #2C0647;
+  --pub-purple-900: #24053A;   /* darkest — preferred "stage" bg */
+
+  /* Coal — neutral / text */
+  --pub-coal-50:  #F4F5F4;
+  --pub-coal-100: #EAEAEA;
+  --pub-coal-200: #CACBCA;
+  --pub-coal-300: #AAACAB;
+  --pub-coal-400: #6B6D6B;
+  --pub-coal-500: #2B2F2C;   /* brand */
+  --pub-coal-600: #272A28;
+  --pub-coal-700: #202321;
+  --pub-coal-800: #1A1C1A;
+  --pub-coal-900: #151716;
+
+  /* Pure */
+  --pub-white: #FFFFFF;
+  --pub-paper: #F8F7F4;      /* "_hero" off-white panel background */
+  --pub-paper-edge: #EAE8E1; /* borders on _hero panels */
+
+  /* ----------------------------------------------------------
+     SEMANTIC ALIASES (use these in components, not raw scales)
+     ---------------------------------------------------------- */
+
+  --pub-bg:            var(--pub-white);
+  --pub-bg-inverse:    var(--pub-purple-900);   /* dark stage */
+  --pub-bg-subtle:     var(--pub-paper);
+  --pub-bg-muted:      var(--pub-coal-50);
+
+  /* The live pub.tech site renders a subtle radial gradient stage, not a
+     flat purple: lighter near the content, fading to near-black at the edges. */
+  --pub-bg-stage:
+    radial-gradient(120% 80% at 50% 30%,
+      var(--pub-purple-700) 0%,
+      var(--pub-purple-900) 55%,
+      #0a0410 100%);
+
+  --pub-fg:            var(--pub-coal-900);
+  --pub-fg-muted:      var(--pub-coal-400);
+  --pub-fg-inverse:    var(--pub-white);
+  --pub-fg-on-purple:  var(--pub-white);
+
+  /* On the dark stage, Lime is the heading color and Aqua is the UI color.
+     This pairing is verified from the live pub.tech homepage. */
+  --pub-fg-heading-dark: var(--pub-lime-500);
+  --pub-fg-ui-dark:      var(--pub-aqua-500);
+  --pub-fg-accent:       var(--pub-aqua-500);     /* alias */
+  --pub-fg-accent-alt:   var(--pub-lime-500);     /* alias */
+  --pub-fg-accent-dark:  var(--pub-purple-500);   /* heading color on light bg */
+
+  --pub-border:        rgba(43, 47, 44, 0.2);   /* coal @ 20% */
+  --pub-border-strong: var(--pub-coal-200);
+  --pub-border-paper:  var(--pub-paper-edge);
+
+  --pub-accent-primary:   var(--pub-purple-500);
+  --pub-accent-secondary: var(--pub-aqua-500);
+  --pub-accent-pop:       var(--pub-lime-500);
+
+  /* ----------------------------------------------------------
+     RADII
+     pub. uses generous, soft radii on cards and a fully-round
+     "panel" radius of 300px for the largest stage frames.
+     ---------------------------------------------------------- */
+  --pub-radius-xs:  4px;
+  --pub-radius-sm:  8px;
+  --pub-radius-md:  12px;   /* cards, panels */
+  --pub-radius-lg:  20px;
+  --pub-radius-xl:  32px;
+  --pub-radius-2xl: 48px;
+  --pub-radius-pill: 999px;
+  --pub-radius-stage: 300px; /* huge corner — see /illu-library frame */
+
+  /* ----------------------------------------------------------
+     SPACING — 4pt grid
+     ---------------------------------------------------------- */
+  --pub-space-0:  0;
+  --pub-space-1:  4px;
+  --pub-space-2:  8px;
+  --pub-space-3:  12px;
+  --pub-space-4:  16px;
+  --pub-space-5:  24px;
+  --pub-space-6:  32px;
+  --pub-space-7:  48px;
+  --pub-space-8:  64px;
+  --pub-space-9:  80px;
+  --pub-space-10: 120px;
+
+  /* ----------------------------------------------------------
+     ELEVATION — kept very subtle. pub. uses borders more than
+     shadows; reserve shadow for hover/focus.
+     ---------------------------------------------------------- */
+  --pub-shadow-sm: 0 1px 2px rgba(36, 5, 58, 0.06);
+  --pub-shadow-md: 0 6px 24px rgba(36, 5, 58, 0.08);
+  --pub-shadow-lg: 0 24px 60px rgba(36, 5, 58, 0.18);
+  --pub-shadow-pop: 0 0 0 4px rgba(181, 253, 66, 0.4); /* lime focus ring */
+
+  /* ----------------------------------------------------------
+     TYPE FOUNDATIONS
+     ---------------------------------------------------------- */
+  --pub-font-display: "Overpass", "Inter", system-ui, sans-serif;
+  --pub-font-body:    "Overpass", "Inter", system-ui, sans-serif;
+  --pub-font-ui:      "Inter", system-ui, sans-serif;
+  --pub-font-mono:    ui-monospace, "JetBrains Mono", Menlo, monospace;
+
+  /* Type scale (matches Figma panel/Heading + Body specs) */
+  --pub-h1-size:   96px;  --pub-h1-line:  122px;  --pub-h1-track: -1.5px;
+  --pub-h2-size:   60px;  --pub-h2-line:   76px;  --pub-h2-track: -0.75px;
+  --pub-h3-size:   48px;  --pub-h3-line:   61px;  --pub-h3-track: -0.75px;
+  --pub-h4-size:   34px;  --pub-h4-line:   48px;  --pub-h4-track: -0.25px;
+  --pub-h5-size:   24px;  --pub-h5-line:   40px;  --pub-h5-track:  0; /* @kind font */
+  --pub-h6-size:   20px;  --pub-h6-line:   36px;  --pub-h6-track:  0; /* @kind font */
+
+  --pub-body-lg-size: 18px; --pub-body-lg-line: 30px;
+  --pub-body-md-size: 16px; --pub-body-md-line: 28px;
+  --pub-body-sm-size: 14px; --pub-body-sm-line: 22px;
+  --pub-eyebrow-size: 14px; --pub-eyebrow-line: 20px; --pub-eyebrow-track: 0.06em;
+
+  --pub-action-size:  16px; --pub-action-line: 28px;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   All headings are Overpass Black (900). All body is Overpass
+   Medium (500). Action/button text is Overpass Bold (700).
+   pub. lowercases everything in its wordmark, but headlines use
+   sentence case — never ALL CAPS in body copy.
+   ============================================================ */
+
+.pub-h1, .pub-h2, .pub-h3, .pub-h4, .pub-h5, .pub-h6 {
+  font-family: var(--pub-font-display);
+  font-weight: 900;
+  color: var(--pub-fg);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.pub-h1 { font-size: var(--pub-h1-size); line-height: var(--pub-h1-line); letter-spacing: var(--pub-h1-track); }
+.pub-h2 { font-size: var(--pub-h2-size); line-height: var(--pub-h2-line); letter-spacing: var(--pub-h2-track); }
+.pub-h3 { font-size: var(--pub-h3-size); line-height: var(--pub-h3-line); letter-spacing: var(--pub-h3-track); }
+.pub-h4 { font-size: var(--pub-h4-size); line-height: var(--pub-h4-line); letter-spacing: var(--pub-h4-track); }
+.pub-h5 { font-size: var(--pub-h5-size); line-height: var(--pub-h5-line); }
+.pub-h6 { font-size: var(--pub-h6-size); line-height: var(--pub-h6-line); }
+
+.pub-body-lg, .pub-body, .pub-body-sm {
+  font-family: var(--pub-font-body);
+  font-weight: 500;
+  color: var(--pub-fg);
+  text-wrap: pretty;
+}
+.pub-body-lg { font-size: var(--pub-body-lg-size); line-height: var(--pub-body-lg-line); }
+.pub-body    { font-size: var(--pub-body-md-size); line-height: var(--pub-body-md-line); }
+.pub-body-sm { font-size: var(--pub-body-sm-size); line-height: var(--pub-body-sm-line); }
+
+.pub-eyebrow {
+  font-family: var(--pub-font-ui);
+  font-size: var(--pub-eyebrow-size);
+  line-height: var(--pub-eyebrow-line);
+  letter-spacing: var(--pub-eyebrow-track);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pub-fg-muted);
+}
+
+.pub-action {
+  font-family: var(--pub-font-display);
+  font-weight: 700;
+  font-size: var(--pub-action-size);
+  line-height: var(--pub-action-line);
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   BRAND UTILITIES — inline-SVG wordmark + logomark
+   Pair with `<script src="assets/logos/brand-logos.js">` at top
+   of <body>, then drop in:
+
+     <svg class="pub-wordmark"><use href="#pub-wordmark"/></svg>
+     <svg class="pub-logomark"><use href="#pub-logomark"/></svg>
+
+   Drive the color via CSS `color:` on the SVG element.
+   ============================================================ */
+
+.pub-wordmark {
+  display: inline-block;
+  height: 1em;
+  width: calc(370 / 90.57 * 1em);
+  aspect-ratio: 370 / 90.57;
+  fill: currentColor;
+  color: currentColor;
+  overflow: visible;
+}
+
+.pub-logomark {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  fill: currentColor;
+  color: currentColor;
+}
+
+/* On dark stage backgrounds, headings sit in lime, aqua or white. */
+.pub-on-dark { color: var(--pub-fg-inverse); }
+.pub-accent-aqua { color: var(--pub-aqua-500); }
+.pub-accent-lime { color: var(--pub-lime-500); }
+.pub-accent-purple { color: var(--pub-purple-500); }
+

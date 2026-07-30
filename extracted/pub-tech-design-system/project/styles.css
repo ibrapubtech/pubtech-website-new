@@ -1,0 +1,4 @@
+/* pub.tech Design System — global entry point
+   Consumers link this one file to get all tokens, type scales, and patterns. */
+@import './colors_and_type.css';
+@import './patterns.css';

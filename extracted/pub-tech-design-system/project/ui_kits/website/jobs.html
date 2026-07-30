@@ -1,0 +1,341 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Website" name="Website — Jobs page" subtitle="Careers — perks, role listings, application" viewport="1280x1100" -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jobs — pub.tech</title>
+<link rel="stylesheet" href="styles-v2.css">
+<style>
+  /* Page-specific overrides for /jobs */
+  .perks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .perk {
+    background: #fff;
+    border: 1px solid var(--pub-coal-100);
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .perk-icon { width: 40px; height: 40px; }
+  .perk-icon img { width: 100%; height: 100%; object-fit: contain; }
+  .perk h3 {
+    font-family: var(--pub-font-display);
+    font-weight: 900; font-size: 18px;
+    color: var(--pub-coal-900); margin: 0;
+  }
+  .perk p {
+    font-family: var(--pub-font-body);
+    font-weight: 500; font-size: 14px;
+    line-height: 1.55;
+    color: var(--pub-coal-700); margin: 0;
+  }
+
+  .roles {
+    background: #fff;
+    border: 1px solid var(--pub-coal-100);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .role {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto;
+    gap: 24px;
+    align-items: center;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--pub-coal-100);
+    text-decoration: none;
+    color: inherit;
+    transition: background .15s ease;
+  }
+  .role:hover { background: var(--pub-paper); }
+  .role:last-child { border-bottom: 0; }
+  .role-title {
+    font-family: var(--pub-font-display);
+    font-weight: 900; font-size: 19px;
+    letter-spacing: -0.3px;
+    color: var(--pub-coal-900);
+  }
+  .role-meta {
+    font-family: var(--pub-font-body);
+    font-weight: 500; font-size: 14px;
+    color: var(--pub-coal-700);
+  }
+  .role-cta {
+    width: 36px; height: 36px;
+    border-radius: 999px;
+    background: var(--pub-coal-900);
+    color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .role:hover .role-cta { background: var(--pub-purple-500); }
+
+  .pill-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 36px;
+  }
+  .filter-pill {
+    font-family: var(--pub-font-display);
+    font-weight: 700; font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--pub-coal-200);
+    color: var(--pub-coal-900);
+    cursor: pointer;
+  }
+  .filter-pill.is-active {
+    background: var(--pub-coal-900); color: #fff; border-color: var(--pub-coal-900);
+  }
+
+  .closing {
+    background: var(--pub-purple-900);
+    background-image: radial-gradient(120% 80% at 70% 0%, var(--pub-purple-700) 0%, var(--pub-purple-900) 60%);
+    border-radius: 24px;
+    padding: 64px 56px;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .closing h2 {
+    font-family: var(--pub-font-display);
+    font-weight: 900;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.05; letter-spacing: -1.5px;
+    color: var(--pub-lime-500);
+    margin: 0 0 18px;
+  }
+  .closing p {
+    font-family: var(--pub-font-body);
+    font-weight: 500; font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.85);
+    margin: 0 0 12px;
+  }
+  .closing-art img {
+    width: 100%;
+    max-width: 280px;
+    filter: drop-shadow(0 24px 60px rgba(255,64,180,.35));
+  }
+
+  @media (max-width: 1100px) {
+    .perks { grid-template-columns: 1fr 1fr; }
+    .closing { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .perks { grid-template-columns: 1fr; }
+    .role { grid-template-columns: 1fr auto; }
+    .role-meta { display: none; }
+  }
+</style>
+</head>
+<body>
+<script src="../../assets/logos/brand-logos.js"></script>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a href="index-v2.html" class="brand">
+    <span class="brand-mark" data-pub-logo="logomark" aria-hidden="true"></span>
+    <span class="brand-wordmark" data-pub-logo="wordmark" aria-label="pub.tech"></span>
+  </a>
+  <nav class="nav">
+    <a href="index-v2.html#portfolio">Portfolio</a>
+    <a href="about.html">Über uns</a>
+    <a href="index-v2.html#process">Prozess</a>
+    <a href="index-v2.html#references">Referenzen</a>
+  </nav>
+  <div class="topbar-actions">
+    <a href="jobs.html" class="signin" style="color:var(--pub-purple-500)">Jobs</a>
+    <a href="#contact" class="btn btn--primary">Kontakt</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="container">
+  <div class="hero" style="padding:40px 0 48px">
+    <span class="eyebrow-dark">Jobs</span>
+    <h1 style="font-size:clamp(40px,5.5vw,84px)">Dein Herz schlägt für Public Value Tech?</h1>
+    <p class="lede">Komm in ein Team aus rund 100 Expert*innen, das digitale Plattformen für Millionen Menschen baut — remote oder vor Ort in München.</p>
+    <a href="#roles" class="btn btn--primary btn--lg">Offene Stellen ansehen</a>
+  </div>
+</section>
+
+<!-- PERKS -->
+<section class="container section">
+  <div class="section-title" style="margin-bottom:32px">
+    <h2>Warum pub.tech.</h2>
+  </div>
+  <div class="perks">
+    <div class="perk">
+      <div class="perk-icon"><img src="../../assets/illustrations/heart.png" alt=""></div>
+      <h3>Sinnvolle Arbeit</h3>
+      <p>Du baust digitale Infrastruktur für den öffentlich-rechtlichen Rundfunk — Inhalte, die Millionen Menschen erreichen.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon"><img src="../../assets/illustrations/compass.png" alt=""></div>
+      <h3>Remote &amp; München</h3>
+      <p>Arbeite flexibel von wo du willst — oder im Office in der Marsstraße. Du entscheidest, was passt.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon"><img src="../../assets/illustrations/puzzle.png" alt=""></div>
+      <h3>Cross-funktionale Teams</h3>
+      <p>UX, Engineering, Data und Coaching arbeiten in einem Team — nicht in Silos.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon"><img src="../../assets/illustrations/hourglass.png" alt=""></div>
+      <h3>Zeit für gute Arbeit</h3>
+      <p>Iterative UX, agile Sprints und ein Team, das User Research ernst nimmt — kein Hustle.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon"><img src="../../assets/illustrations/lightbulb.png" alt=""></div>
+      <h3>Weiter­entwicklung</h3>
+      <p>Konferenzen, interne Sessions, Pair Programming. Wir lernen voneinander — als Team und als Branche.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon"><img src="../../assets/illustrations/trophy.png" alt=""></div>
+      <h3>Charta der Vielfalt</h3>
+      <p>Seit 2024 als sichtbares Bekenntnis unterzeichnet. Vielfalt ist Wert, nicht Marketing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="container section" id="roles">
+  <div class="section-title">
+    <h2>Offene Stellen.</h2>
+  </div>
+
+  <div class="pill-row">
+    <button class="filter-pill is-active">Alle</button>
+    <button class="filter-pill">Engineering</button>
+    <button class="filter-pill">Data &amp; AI</button>
+    <button class="filter-pill">UX &amp; Research</button>
+    <button class="filter-pill">Mobile</button>
+    <button class="filter-pill">Agile Coaching</button>
+  </div>
+
+  <div class="roles">
+    <a href="#" class="role">
+      <div class="role-title">Senior Backend Engineer (Java/Kotlin)</div>
+      <div class="role-meta">Engineering</div>
+      <div class="role-meta">Remote · München</div>
+      <div class="role-meta">Vollzeit</div>
+      <div class="role-cta">→</div>
+    </a>
+    <a href="#" class="role">
+      <div class="role-title">UX Researcher — ARD-Mediathek</div>
+      <div class="role-meta">UserLab</div>
+      <div class="role-meta">Remote · München</div>
+      <div class="role-meta">Vollzeit</div>
+      <div class="role-cta">→</div>
+    </a>
+    <a href="#" class="role">
+      <div class="role-title">Data Engineer (dbt / Snowflake)</div>
+      <div class="role-meta">Data &amp; AI</div>
+      <div class="role-meta">Remote · München</div>
+      <div class="role-meta">Vollzeit</div>
+      <div class="role-cta">→</div>
+    </a>
+    <a href="#" class="role">
+      <div class="role-title">iOS Engineer — Streaming</div>
+      <div class="role-meta">Mobile</div>
+      <div class="role-meta">Remote · München</div>
+      <div class="role-meta">Vollzeit</div>
+      <div class="role-cta">→</div>
+    </a>
+    <a href="#" class="role">
+      <div class="role-title">Agile Coach</div>
+      <div class="role-meta">Coaching</div>
+      <div class="role-meta">Remote · München</div>
+      <div class="role-meta">Vollzeit</div>
+      <div class="role-cta">→</div>
+    </a>
+    <a href="#" class="role">
+      <div class="role-title">Senior Product Designer</div>
+      <div class="role-meta">UX</div>
+      <div class="role-meta">Remote · München</div>
+      <div class="role-meta">Vollzeit</div>
+      <div class="role-cta">→</div>
+    </a>
+    <a href="#" class="role">
+      <div class="role-title">Initiativ­bewerbung</div>
+      <div class="role-meta">Alle Bereiche</div>
+      <div class="role-meta">Remote · München</div>
+      <div class="role-meta">Flexibel</div>
+      <div class="role-cta">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="container section">
+  <div class="closing">
+    <div>
+      <span style="display:inline-block;font-family:var(--pub-font-display);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--pub-aqua-400);margin-bottom:24px">Bewerbung</span>
+      <h2>Keine passende Stelle?</h2>
+      <p>Schreib uns trotzdem — formlos, ohne Lebenslauf-Theater. Wir freuen uns auf dich.</p>
+      <p style="margin-top:24px"><strong>Deine Ansprechpartnerin:</strong><br>Annette Glück</p>
+      <a href="mailto:karriere@pub.tech" class="btn btn--lime btn--lg" style="margin-top:24px">karriere@pub.tech</a>
+    </div>
+    <div class="closing-art">
+      <img src="../../assets/illustrations/rocket.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (shared) -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="brand-wordmark" data-pub-logo="wordmark"></span>
+        <p>Public Value Technologies GmbH<br>Marsstraße 46<br>80335 München</p>
+        <p style="opacity:.5;font-size:13px">Eine Tochter von BR, SWR und HR.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Was wir tun</h4>
+        <a href="index-v2.html#portfolio">Engineering</a>
+        <a href="index-v2.html#portfolio">Data &amp; AI</a>
+        <a href="index-v2.html#portfolio">Mobile</a>
+        <a href="index-v2.html#portfolio">UX Design</a>
+        <a href="index-v2.html#portfolio">UserLab</a>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <a href="about.html">Über uns</a>
+        <a href="index-v2.html#references">Referenzen</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <a href="mailto:info@pub.tech">info@pub.tech</a>
+        <a href="mailto:anfrage@pub.tech">anfrage@pub.tech</a>
+        <a href="mailto:karriere@pub.tech">karriere@pub.tech</a>
+      </div>
+      <div class="footer-col">
+        <h4>Folgen</h4>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+
+    <div class="footer-tiny" style="margin-top:48px;border-top:1px solid rgba(255,255,255,.08);padding-top:20px">
+      <span>© 2025 Public Value Technologies GmbH</span>
+      <span>Impressum · Datenschutz · Hinweis geben</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

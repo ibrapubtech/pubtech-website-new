@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Form inputs" subtitle="Text input + textarea · inferred" viewport="700x330" -->
+<html lang="de"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_card.css">
+<style>
+.inp{
+  font-family:var(--pub-font-body);font-weight:500;font-size:16px;
+  color:var(--pub-coal-900);background:#fff;
+  border:1.5px solid var(--pub-coal-200);border-radius:8px;
+  padding:12px 14px;outline:none;width:100%;
+}
+.inp:focus{border-color:var(--pub-purple-500);box-shadow:0 0 0 4px rgba(181,253,66,0.4)}
+textarea.inp{resize:vertical;font-family:var(--pub-font-body)}
+</style>
+</head><body>
+
+<div class="col" style="gap:14px;max-width:560px">
+  <label class="col" style="gap:6px">
+    <span class="label-tiny">Name</span>
+    <input class="inp" value="Anna Müller" />
+  </label>
+  <label class="col" style="gap:6px">
+    <span class="label-tiny">E-Mail</span>
+    <input class="inp" placeholder="du@pub.tech" />
+  </label>
+  <label class="col" style="gap:6px">
+    <span class="label-tiny">Nachricht</span>
+    <textarea class="inp" rows="3" placeholder="Wie können wir helfen?"></textarea>
+  </label>
+</div>
+
+</body></html>

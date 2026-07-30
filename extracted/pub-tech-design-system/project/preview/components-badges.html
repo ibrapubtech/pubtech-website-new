@@ -1,0 +1,28 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Chips" subtitle="Pill-shaped, all-color · inferred" viewport="700x120" -->
+<html lang="de"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_card.css">
+<style>
+.chip{
+  display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;
+  font-family:var(--pub-font-display);font-weight:700;font-size:14px;letter-spacing:0;
+}
+.chip--purple{background:var(--pub-purple-500);color:#fff}
+.chip--aqua{background:var(--pub-aqua-500);color:var(--pub-purple-900)}
+.chip--lime{background:var(--pub-lime-500);color:var(--pub-purple-900)}
+.chip--coal{background:var(--pub-coal-900);color:#fff}
+.chip--outline{background:transparent;border:1.5px solid var(--pub-coal-300);color:var(--pub-coal-900)}
+</style>
+</head><body>
+
+<div class="row" style="gap:10px;flex-wrap:wrap">
+  <span class="chip chip--purple">UX-Research</span>
+  <span class="chip chip--aqua">Backend</span>
+  <span class="chip chip--lime">Data</span>
+  <span class="chip chip--coal">Agile</span>
+  <span class="chip chip--outline">Remote</span>
+  <span class="chip chip--outline">München</span>
+</div>
+
+</body></html>

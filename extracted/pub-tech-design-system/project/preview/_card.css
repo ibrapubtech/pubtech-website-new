@@ -1,0 +1,33 @@
+/* Card base for Design System preview tiles */
+@import url("../colors_and_type.css");
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: var(--pub-font-body);
+  color: var(--pub-fg);
+  background: var(--pub-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body { padding: 24px; }
+
+.row { display: flex; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.grid { display: grid; gap: 16px; }
+.muted { color: var(--pub-fg-muted); }
+.label-tiny {
+  font-family: var(--pub-font-ui);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pub-fg-muted);
+  font-weight: 600;
+}
+.mono {
+  font-family: var(--pub-font-mono);
+  font-size: 12px;
+  color: var(--pub-fg-muted);
+}

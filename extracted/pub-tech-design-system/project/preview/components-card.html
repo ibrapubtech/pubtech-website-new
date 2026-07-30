@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Cards" subtitle="Light + dark stage card patterns" viewport="700x280" -->
+<html lang="de"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_card.css">
+<style>
+.pub-card{
+  background:#fff;border:1px solid var(--pub-border);border-radius:12px;
+  padding:24px;display:flex;flex-direction:column;gap:10px;
+}
+.pub-card--dark{background:var(--pub-purple-900);border-color:transparent}
+.pub-card-eyebrow{font-family:var(--pub-font-ui);font-size:12px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--pub-purple-500)}
+.pub-card-h{font-family:var(--pub-font-display);font-weight:900;font-size:24px;
+  line-height:30px;letter-spacing:-0.2px;margin:0;color:var(--pub-coal-900)}
+.pub-card-p{font-family:var(--pub-font-body);font-weight:500;font-size:16px;
+  line-height:24px;color:var(--pub-coal-400);margin:0}
+.pub-card-link{font-family:var(--pub-font-display);font-weight:700;font-size:14px;
+  color:var(--pub-purple-500);text-decoration:none;margin-top:auto}
+</style>
+</head><body>
+
+<div class="row" style="gap:14px;align-items:stretch">
+  <article class="pub-card" style="flex:1">
+    <div class="pub-card-eyebrow">Plattformen</div>
+    <h3 class="pub-card-h">Stabil laufen, skalieren, begeistern.</h3>
+    <p class="pub-card-p">Wir entwickeln, betreiben und optimieren digitale Systeme für Millionen Menschen.</p>
+    <a class="pub-card-link" href="#">Mehr erfahren →</a>
+  </article>
+  <article class="pub-card pub-card--dark" style="flex:1">
+    <div class="pub-card-eyebrow" style="color:var(--pub-aqua-400)">Mission</div>
+    <h3 class="pub-card-h" style="color:#fff">Öffentlichen Mehrwert digital übersetzen.</h3>
+    <p class="pub-card-p" style="color:rgba(255,255,255,.7)">Produkte, die zuverlässig, zugänglich und nutzerfreundlich sind — für alle.</p>
+    <a class="pub-card-link" href="#" style="color:var(--pub-lime-500)">Über uns →</a>
+  </article>
+</div>
+
+</body></html>

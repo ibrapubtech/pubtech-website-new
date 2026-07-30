@@ -1,0 +1,503 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Website" name="Website — v3 (Bento upgrade)" subtitle="Colored bands · bento grids · stencil headlines · UI mockups" viewport="1280x1100" -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>pub.tech — Wir gestalten digitale Plattformen.</title>
+<link rel="stylesheet" href="styles-v2.css">
+<link rel="stylesheet" href="../../patterns.css">
+<style>
+  /* v3-specific glue */
+  body { background: var(--pub-paper); }
+  .stage-eyebrow {
+    display: inline-block;
+    font-family: var(--pub-font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  /* signup band */
+  .signup-band {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .signup-form, .signup-cta {
+    border-radius: 22px;
+    padding: 48px 40px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .signup-form { background: var(--pub-purple-200); color: var(--pub-coal-900); }
+  .signup-cta  { background: var(--pub-aqua-100); color: var(--pub-coal-900); }
+  .signup-form h3 {
+    font-family: var(--pub-font-display);
+    font-weight: 900;
+    font-size: 24px;
+    margin: 0 0 24px;
+    letter-spacing: -0.4px;
+  }
+  .signup-form .checks {
+    display: flex; gap: 24px; margin-bottom: 18px;
+    font-family: var(--pub-font-body);
+    font-weight: 500; font-size: 14px;
+  }
+  .signup-form label.check { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+  .signup-form input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--pub-purple-500); }
+  .signup-form input[type="email"] {
+    width: 100%; padding: 14px 18px;
+    background: #fff; border: 1px solid var(--pub-coal-200);
+    border-radius: 999px; font-family: var(--pub-font-body); font-size: 15px;
+    color: var(--pub-coal-900);
+    margin-bottom: 16px;
+  }
+  .signup-form button {
+    background: var(--pub-coal-900); color: #fff;
+    border: 0; border-radius: 999px;
+    padding: 14px 28px; font-family: var(--pub-font-display); font-weight: 700;
+    font-size: 14px; cursor: pointer;
+    width: fit-content;
+  }
+  .signup-form .fineprint {
+    font-family: var(--pub-font-body); font-weight: 500;
+    font-size: 12px; line-height: 1.5;
+    color: var(--pub-coal-700);
+    margin-top: 18px; max-width: 380px;
+  }
+  .signup-cta .stencil-wrap { text-align: right; }
+  .signup-cta-art {
+    position: absolute;
+    bottom: -16px; right: 32px;
+    width: 200px;
+  }
+  .signup-cta-art img { width: 100%; }
+
+  /* device mockup specifics */
+  .device-screen {
+    width: 100%;
+    flex: 1;
+    background: linear-gradient(180deg, var(--pub-purple-200) 0%, var(--pub-purple-100) 100%);
+    border-radius: 18px 18px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .device-screen img { width: 70%; margin-bottom: -20px; }
+  .device-screen .tag {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--pub-font-display);
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--pub-purple-900);
+    text-transform: uppercase;
+  }
+
+  /* Use-case mock body */
+  .mock-body {
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--pub-coal-900);
+  }
+  .mock-row {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--pub-font-body); font-weight: 600; font-size: 12px;
+  }
+  .mock-row .meta { color: var(--pub-coal-400); }
+  .mock-row .price { color: var(--pub-purple-500); font-family: var(--pub-font-display); font-weight: 900; }
+  .mock-divider { height: 1px; background: var(--pub-coal-100); }
+  .mock-search {
+    background: var(--pub-paper); border: 1px solid var(--pub-coal-100);
+    border-radius: 10px; padding: 8px 12px;
+    font-family: var(--pub-font-body); font-size: 11px; color: var(--pub-coal-400);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .mock-pill {
+    display: inline-block;
+    padding: 4px 10px; border-radius: 999px;
+    background: var(--pub-lime-500); color: var(--pub-purple-900);
+    font-family: var(--pub-font-display); font-weight: 700; font-size: 10px;
+  }
+  .mock-rect { background: var(--pub-coal-50); border-radius: 8px; height: 28px; }
+  .mock-card-row {
+    background: var(--pub-paper); border-radius: 10px; padding: 8px 10px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--pub-font-body); font-size: 11px; font-weight: 600;
+  }
+
+  /* bento card art positions */
+  .pub-bento-card .pub-bento-card-art img.tilt { transform: rotate(-6deg); }
+  .pub-bento-card .pub-bento-card-art img.tilt-r { transform: rotate(6deg); }
+</style>
+</head>
+<body>
+<script src="../../assets/logos/brand-logos.js"></script>
+
+<!-- ============== TOPBAR ============== -->
+<header class="topbar">
+  <a href="index-v3.html" class="brand">
+    <span class="brand-mark" data-pub-logo="logomark" aria-hidden="true"></span>
+    <span class="brand-wordmark" data-pub-logo="wordmark" aria-label="pub.tech"></span>
+  </a>
+  <nav class="nav">
+    <a href="#portfolio">Portfolio</a>
+    <a href="about.html">Über uns</a>
+    <a href="#process">Prozess</a>
+    <a href="#references">Referenzen</a>
+  </nav>
+  <div class="topbar-actions">
+    <a href="jobs.html" class="signin">Jobs</a>
+    <a href="#contact" class="btn btn--primary">Kontakt</a>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="container" data-screen-label="01 Hero">
+  <div class="hero">
+    <h1>Wir gestalten digitale Plattformen, die wirken.</h1>
+    <p class="lede">Public Value Technologies entwickelt, betreibt und optimiert die digitalen Systeme des öffentlich-rechtlichen Rundfunks — vom Backend bis zur Experience.</p>
+    <a href="#portfolio" class="btn btn--primary btn--lg">Was wir tun</a>
+  </div>
+</section>
+
+<!-- ============== STAGE 1 · ÖFFENTLICH. DIGITAL. WERTVOLL. ============== -->
+<section class="pub-stage pub-stage--lime" id="portfolio" data-screen-label="02 Bento — Public Value">
+  <div class="pub-stage-inner">
+    <div class="stage-eyebrow" style="color:var(--pub-purple-500)">Was wir bauen</div>
+
+    <div class="pub-bento">
+
+      <!-- Left top -->
+      <article class="pub-bento-card pub-bento-card--purple-deep">
+        <div>
+          <h3>Streaming für<br>Millionen.</h3>
+          <p>Backends, die zur Primetime nicht wackeln. Gebaut für ARD-Mediathek-Workloads.</p>
+        </div>
+        <div class="pub-ui-chip" style="align-self:flex-start">
+          <span class="dot">▶</span> Mediathek live
+        </div>
+      </article>
+
+      <!-- Center (spans both rows) -->
+      <div class="pub-bento-center">
+        <h2 class="pub-stencil">Öffentlich.<br>Digital.<br>Wertvoll.</h2>
+        <div class="pub-device">
+          <div class="device-screen">
+            <span class="tag">pub.tech</span>
+            <img src="../../assets/illustrations/rocket.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right top -->
+      <article class="pub-bento-card pub-bento-card--coal">
+        <div>
+          <h3>Apps, die<br>bewegen.</h3>
+          <p>iOS, Android, Web — eine Codebase, drei Erlebnisse.</p>
+        </div>
+        <div class="pub-bento-card-art"><img src="../../assets/illustrations/mobile.png" alt="" class="tilt-r"></div>
+      </article>
+
+      <!-- Left bottom -->
+      <article class="pub-bento-card pub-bento-card--lime">
+        <div>
+          <h3>Daten, die<br>Wissen schaffen.</h3>
+          <p>KI, die sinnvoll unterstützt — nicht bloß glänzt.</p>
+        </div>
+        <div class="pub-bento-card-art"><img src="../../assets/illustrations/charts.png" alt="" class="tilt"></div>
+      </article>
+
+      <!-- Right bottom -->
+      <article class="pub-bento-card pub-bento-card--aqua-200">
+        <div>
+          <h3>UX, die<br>Marken erfahrbar macht.</h3>
+          <p>Interfaces für Menschen. Nutzerforschung, die wirkt.</p>
+        </div>
+        <div class="pub-bento-card-art"><img src="../../assets/illustrations/pen.png" alt="" class="tilt"></div>
+      </article>
+
+    </div>
+
+    <div class="pub-rail-dots" aria-hidden="true">
+      <i class="is-active"></i><i></i><i></i><i></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STAGE 2 · MILLIONEN. JEDEN TAG. ============== -->
+<section class="pub-stage pub-stage--aqua-strong" data-screen-label="03 Bento — Scale & Trust">
+  <div class="pub-stage-inner">
+    <div class="stage-eyebrow" style="color:var(--pub-purple-700)">Reichweite &amp; Vertrauen</div>
+
+    <div class="pub-bento">
+
+      <!-- Left top -->
+      <article class="pub-bento-card pub-bento-card--lime-200">
+        <div>
+          <h3>Trusted by<br>Millionen Nutzer*innen.</h3>
+          <p>Die größte Online-Mediathek Deutschlands läuft auf unserer Infrastruktur.</p>
+        </div>
+        <div class="pub-bento-card-art" style="justify-content:flex-start">
+          <img src="../../assets/illustrations/head.png" alt="" style="max-height:120px">
+        </div>
+      </article>
+
+      <!-- Center -->
+      <div class="pub-bento-center">
+        <h2 class="pub-stencil pub-stencil--purple">Millionen.<br>Jeden Tag.</h2>
+        <div class="pub-device">
+          <div class="device-screen" style="background:linear-gradient(180deg,var(--pub-aqua-200) 0%,var(--pub-aqua-100) 100%)">
+            <span class="tag">Mediathek</span>
+            <img src="../../assets/illustrations/heart.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right top -->
+      <article class="pub-bento-card pub-bento-card--lavender">
+        <div>
+          <h3>24/7 Operations,<br>Schweigeprobe inklusive.</h3>
+          <p>Monitoring, On-Call, Incident-Response — leise, wenn alles läuft.</p>
+        </div>
+        <div class="pub-ui-card" style="align-self:flex-start">
+          <div class="row"><span class="lbl">Status</span><strong style="color:var(--pub-lime-700)">● Live</strong></div>
+          <div class="row"><span class="lbl">Latency</span><strong>42 ms</strong></div>
+        </div>
+      </article>
+
+      <!-- Left bottom -->
+      <article class="pub-bento-card pub-bento-card--coal">
+        <div>
+          <h3>Security &amp;<br>Datenschutz built-in.</h3>
+          <p>DSGVO-konform vom Login bis zum Cache. Privacy ist Anforderung, kein Add-On.</p>
+        </div>
+        <div class="pub-bento-card-art">
+          <img src="../../assets/illustrations/lock.png" alt="" style="max-height:120px">
+        </div>
+      </article>
+
+      <!-- Right bottom -->
+      <article class="pub-bento-card pub-bento-card--purple-900">
+        <div>
+          <h3>Skaliert seit 2022.</h3>
+          <p>Eigenständige GmbH. Drei Gesellschafter. Ein Auftrag.</p>
+        </div>
+        <div class="pub-bento-card-art">
+          <img src="../../assets/illustrations/target.png" alt="" style="max-height:140px">
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pub-rail-dots" aria-hidden="true">
+      <i></i><i class="is-active"></i><i></i><i></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BROADCASTER STRIP ============== -->
+<section class="brand-strip">
+  <div class="brand-strip-inner">
+    <span class="partner">BR</span>
+    <span class="partner">SWR</span>
+    <span class="partner">hr</span>
+    <span class="partner">ARD</span>
+    <span class="partner">Tagesschau</span>
+    <span class="partner">Mediathek</span>
+  </div>
+</section>
+
+<!-- ============== STAGE 3 · NEWSLETTER + CTA SPLIT ============== -->
+<section class="pub-stage pub-stage--paper" data-screen-label="04 Newsletter + onboard">
+  <div class="pub-stage-inner">
+    <div class="signup-band">
+      <div class="signup-form">
+        <h3>Sign up to receive<br>updates and announcements</h3>
+        <div class="checks">
+          <label class="check"><input type="checkbox" checked> Allgemeine Updates</label>
+          <label class="check"><input type="checkbox"> Karriere</label>
+        </div>
+        <input type="email" placeholder="du@beispiel.de">
+        <button type="button">Subscribe</button>
+        <p class="fineprint">pub.tech nutzt deine Kontaktinformationen, um dir Updates zuzusenden. Du kannst dich jederzeit abmelden.</p>
+      </div>
+      <div class="signup-cta">
+        <div class="stencil-wrap">
+          <span class="stage-eyebrow" style="color:var(--pub-purple-700)">Neu hier?</span>
+          <h2 class="pub-stencil pub-stencil--purple" style="font-size:clamp(36px,4.5vw,72px)">Neu im<br>Public-Value-Tech?</h2>
+          <p style="font-family:var(--pub-font-body);font-weight:500;font-size:15px;line-height:1.55;max-width:380px;margin:18px 0 24px;color:var(--pub-coal-700);margin-left:auto">In einer kurzen Lesereise zeigen wir dir, was Public Value im Digitalen bedeutet — und wie wir es gestalten.</p>
+          <a href="about.html" class="btn btn--primary">Lesereise starten</a>
+        </div>
+        <div class="signup-cta-art">
+          <img src="../../assets/illustrations/unicorn.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATS · Zahlen & Fakten ============== -->
+<section class="container section--tight" data-screen-label="05 Stats">
+  <div class="stats">
+    <div class="stats-head">
+      <span class="eyebrow-dark">Zahlen &amp; Fakten</span>
+      <h2>Ein Team, das öffentlichen Mehrwert digital übersetzt.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num">~100</div><div class="stat-lbl">Expert*innen</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Gesellschafter</div></div>
+      <div class="stat"><div class="stat-num">2022</div><div class="stat-lbl">Eigenständige GmbH</div></div>
+      <div class="stat"><div class="stat-num">DE</div><div class="stat-lbl">Remote &amp; München</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STAGE 4 · PUB.TECH IM ALLTAG ============== -->
+<section class="pub-stage pub-stage--lime" data-screen-label="06 Use cases">
+  <div class="pub-stage-inner">
+    <div class="stage-eyebrow" style="color:var(--pub-purple-500)">Pub.tech im Alltag</div>
+    <h2 style="font-family:var(--pub-font-display);font-weight:900;font-size:clamp(32px,4vw,56px);line-height:1.05;letter-spacing:-1.2px;color:var(--pub-coal-900);margin:0 0 48px;max-width:760px;text-wrap:balance">
+      Plattformen, die <span style="color:var(--pub-purple-500)">Millionen Menschen</span> jeden Tag nutzen.
+    </h2>
+
+    <div class="pub-cases">
+
+      <!-- Case 1: Mediathek -->
+      <div class="pub-case pub-case--white">
+        <div class="mock-body">
+          <div class="mock-search">🔍 Suchen in der Mediathek</div>
+          <div class="mock-card-row"><span>Tagesschau · 20:00</span><span class="mock-pill">Live</span></div>
+          <div class="mock-card-row"><span>Doku · Klima 2050</span><span style="color:var(--pub-coal-400)">42 Min</span></div>
+          <div class="mock-card-row"><span>Filmfest München</span><span style="color:var(--pub-coal-400)">88 Min</span></div>
+        </div>
+        <h4>Streaming, das funktioniert.</h4>
+        <p>Such-, Empfehlungs- und Player-Stack für die ARD-Mediathek.</p>
+      </div>
+
+      <!-- Case 2: BR24 News -->
+      <div class="pub-case pub-case--aqua">
+        <div class="mock-body">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong style="font-family:var(--pub-font-display);font-weight:900;font-size:14px">BR24</strong>
+            <span class="mock-pill" style="background:var(--pub-purple-500);color:#fff">Push</span>
+          </div>
+          <div class="mock-divider"></div>
+          <div style="font-family:var(--pub-font-body);font-weight:600;font-size:12px;line-height:1.4">Hochwasser-Lage in Niederbayern — Live-Ticker</div>
+          <div style="font-family:var(--pub-font-body);font-size:11px;color:var(--pub-coal-400)">vor 4 Min · BR24</div>
+          <div class="mock-rect"></div>
+        </div>
+        <h4>News, in Echtzeit.</h4>
+        <p>BR24-Newsroom-Tools für Redaktion und App.</p>
+      </div>
+
+      <!-- Case 3: KiKA -->
+      <div class="pub-case pub-case--lime">
+        <div class="mock-body">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="width:32px;height:32px;border-radius:8px;background:var(--pub-lime-500);display:inline-block"></span>
+            <div>
+              <strong style="font-family:var(--pub-font-display);font-weight:900;font-size:13px;display:block">KiKA-Player</strong>
+              <span style="font-family:var(--pub-font-body);font-size:10px;color:var(--pub-coal-400)">Kindersicher</span>
+            </div>
+          </div>
+          <div class="mock-card-row"><span>Sandmännchen</span><span class="mock-pill" style="background:var(--pub-purple-500);color:#fff">▶</span></div>
+          <div class="mock-card-row"><span>Checker Tobi</span><span class="mock-pill" style="background:var(--pub-coal-200);color:var(--pub-coal-900)">▶</span></div>
+        </div>
+        <h4>Sichere Räume<br>für Kinder.</h4>
+        <p>Streaming-Apps mit konsequentem Kinder- und Jugendschutz.</p>
+      </div>
+
+      <!-- Case 4: Datenstrategie -->
+      <div class="pub-case pub-case--purple">
+        <div class="mock-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end">
+            <div>
+              <span style="font-family:var(--pub-font-body);font-size:11px;color:var(--pub-coal-400);display:block">Reichweite (7d)</span>
+              <strong style="font-family:var(--pub-font-display);font-weight:900;font-size:20px;color:var(--pub-purple-500)">2,4 Mio</strong>
+            </div>
+            <span class="mock-pill" style="background:var(--pub-lime-500)">+12%</span>
+          </div>
+          <svg viewBox="0 0 100 30" preserveAspectRatio="none" style="width:100%;height:40px">
+            <polyline points="0,22 12,18 24,20 36,12 48,15 60,8 72,10 84,4 100,7"
+                      fill="none" stroke="var(--pub-purple-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Daten, die Entscheidungen tragen.</h4>
+        <p>Analytics, KI-Empfehlungen, A/B-Plattform — eine Suite.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER (shared) ============== -->
+<footer class="footer" id="contact" data-screen-label="07 Footer">
+  <div class="container">
+    <div class="footer-cta">
+      <h2>Lust, gemeinsam Plattformen zu bauen?</h2>
+      <p>Dein Herz schlägt für digitale Produkte mit gesellschaftlicher Relevanz? Schreib uns formlos — wir freuen uns.</p>
+      <a href="mailto:karriere@pub.tech" class="btn btn--lime btn--lg">karriere@pub.tech</a>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="brand-wordmark" data-pub-logo="wordmark"></span>
+        <p>Public Value Technologies GmbH<br>Marsstraße 46<br>80335 München</p>
+        <p style="opacity:.5;font-size:13px">Eine Tochter von BR, SWR und HR.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Was wir tun</h4>
+        <a href="#portfolio">Engineering</a>
+        <a href="#portfolio">Data &amp; AI</a>
+        <a href="#portfolio">Mobile</a>
+        <a href="#portfolio">UX Design</a>
+        <a href="#portfolio">UserLab</a>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <a href="about.html">Über uns</a>
+        <a href="#references">Referenzen</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <a href="mailto:info@pub.tech">info@pub.tech</a>
+        <a href="mailto:anfrage@pub.tech">anfrage@pub.tech</a>
+        <a href="mailto:karriere@pub.tech">karriere@pub.tech</a>
+      </div>
+      <div class="footer-col">
+        <h4>Folgen</h4>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+
+    <div class="footer-tiny">
+      <span>© 2025 Public Value Technologies GmbH</span>
+      <span>Impressum · Datenschutz · Hinweis geben</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

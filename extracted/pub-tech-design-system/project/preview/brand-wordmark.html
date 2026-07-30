@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Wordmark" subtitle="Light + dark — currentColor recolorable" viewport="700x240" -->
+<html lang="de"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 0; }
+  .stage { display:flex; border:1px solid var(--pub-border); border-radius:12px; overflow:hidden; height:200px; }
+  .pane { flex:1; display:flex; align-items:center; justify-content:center; }
+  .pane--light { background:#fff; }
+  .pane--dark  { background:var(--pub-purple-900); }
+  .wm { display: inline-flex; height: 60px; }
+  .wm > svg { height: 100%; width: auto; fill: currentColor; }
+  .wm--coal { color: var(--pub-coal-900); }
+  .wm--aqua { color: var(--pub-aqua-500); }
+</style>
+</head><body>
+<script src="../assets/logos/brand-logos.js"></script>
+<div class="stage">
+  <div class="pane pane--light">
+    <span class="wm wm--coal" data-pub-logo="wordmark" aria-label="pub.tech wordmark"></span>
+  </div>
+  <div class="pane pane--dark">
+    <span class="wm wm--aqua" data-pub-logo="wordmark" aria-label="pub.tech wordmark"></span>
+  </div>
+</div>
+</body></html>
